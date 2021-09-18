@@ -11,14 +11,14 @@ const EditPost = ({ history, match }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.patch(`/post/${id}`, { title, author, content })
+    const res = await axios.patch(`https://laravel-crud-practice.herokuapp.com/post/${id}`, { title, author, content })
     if (res.status === 200) {
       history.push("/");
     }
   };
 
   const editPost = async () => {
-    const { data } = await axios.get(`/post/${id}/edit`);
+    const { data } = await axios.get(`https://laravel-crud-practice.herokuapp.com/post/${id}/edit`);
     console.log(data);
     setTitle(data.post.title);
     setAuthor(data.post.author);

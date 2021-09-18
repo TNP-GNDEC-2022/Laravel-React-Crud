@@ -6,7 +6,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const res = await axios.get("/post");
+    const res = await axios.get("https://laravel-crud-practice.herokuapp.com/post");
     if (res.status === 200) {
       setPosts(res.data.posts);
     }
