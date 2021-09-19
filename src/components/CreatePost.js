@@ -1,16 +1,29 @@
 import { useState } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Select from 'react-select'
 import axios from "axios";
 
 const CreatePost = ({ history }) => {
   const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [type, setType] = useState("");
   const [content, setContent] = useState("");
+  console.log(type)
+  console.log(content)
+
+  const options = [
+    { value: 'announcement', label: 'Announcement' },
+    { value: 'selection', label: 'Selection' },
+    { value: 'training', label: 'Traning' }
+  ]
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://laravel-crud-practice.herokuapp.com/post", { title, author, content });
+    console.log(title, type, content)
+    const res = await axios.post("https://laravel-crud-practice.herokuapp.com/post", { title, type, content });
     setTitle("");
-    setAuthor("");
+    setType("");
     setContent("");
     if (res.status === 200) {
       history.push("/")
@@ -27,14 +40,20 @@ const CreatePost = ({ history }) => {
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control" placeholder="Title" />
           <small className="form-text text-muted">Make sure the title is crisp and ellaborative.</small>
         </div>
-        <div className="form-group">
-          <label htmlFor="author" className="form-label mt-4">Author</label>
-          <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} className="form-control" placeholder="Author" />
-          <small className="form-text text-muted">Please enter your full name</small>
+        <div className="form-group z-10">
+          <label htmlFor="exampleTextarea" className="form-label mt-4">Description</label>
+          <CKEditor
+            editor={ClassicEditor}
+            config={{
+              toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+              removePlugins: ["EasyImage", "ImageUpload", "MediaEmbed"]
+            }}
+            onChange={(e, editor) => { setContent(editor.getData()); console.log(content); }}
+          />
         </div>
         <div className="form-group">
-          <label htmlFor="exampleTextarea" className="form-label mt-4">Content</label>
-          <textarea value={content} onChange={(e) => setContent(e.target.value)} className="form-control" ows="3" spellCheck="false" />
+          <label htmlFor="exampleSelect1" className="form-label mt-4">Type</label>
+          <Select onChange={(opt) => setType(opt.value)} options={options} />
         </div>
         <div className="form-group">
           <input
