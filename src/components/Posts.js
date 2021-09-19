@@ -17,7 +17,7 @@ const Posts = () => {
   }, []);
 
   const deletePost = async (id) => {
-    const res = await axios.delete(`/post/${id}`);
+    const res = await axios.delete(`https://laravel-crud-practice.herokuapp.com/post/${id}`);
     if (res.data.status === 200) {
       fetchPosts();
     }
