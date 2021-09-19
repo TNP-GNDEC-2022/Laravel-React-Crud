@@ -6,7 +6,7 @@ import axios from "axios";
 
 const EditPost = ({ history, match }) => {
   const id = match.params.postId;
-  console.log(id);
+  // console.log(id);
 
   const options = [
     { value: 'announcement', label: 'Announcement' },
@@ -28,11 +28,11 @@ const EditPost = ({ history, match }) => {
 
   const editPost = async () => {
     const { data } = await axios.get(`https://laravel-crud-practice.herokuapp.com/post/${id}/edit`);
-    console.log(data);
+    // console.log(data);
     setTitle(data.post.title);
     setType(data.post.type);
     setContent(data.post.content);
-    console.log(title);
+    // console.log(title);
   }
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const EditPost = ({ history, match }) => {
               toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
               removePlugins: ["EasyImage", "ImageUpload", "MediaEmbed", "table"]
             }}
-            onChange={(e, editor) => { setContent(editor.getData()); console.log(content); }}
+            onChange={(e, editor) => { setContent(editor.getData()) }}
           />
         </div>
         <div className="form-group">

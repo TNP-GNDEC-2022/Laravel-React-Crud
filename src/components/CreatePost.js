@@ -20,7 +20,7 @@ const CreatePost = ({ history }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(title, type, content)
+    // console.log(title, type, content)
     const res = await axios.post("https://laravel-crud-practice.herokuapp.com/post", { title, type, content });
     setTitle("");
     setType("");
