@@ -1,32 +1,43 @@
-# Laravel-React-Crud
-Task 1: Members have to build a web application (**any**) which has **CRUD** (Create, Read, Update, Delete) operation.
+# Laravel-React-Crud-Posts
+A crud operation web application where you can Create, Retrieve, Update, Delete Posts. Backend in Laravel PHP framework and Frontend in React JS framework.
 
-* Backend - Laravel Framework
-* Frontend - ReactJS Framework
-* Database - MySQL
+## Thumbnail
+   <img src="https://miro.medium.com/max/700/1*CiWgRx5O9ygMWnSJx8FNng.png" />
+   
+## Demo
+   <img src="https://miro.medium.com/max/640/1*-ToT2b2BDsX70h8L4e12WA.gif" />
 
-**Deadline:** 25 Sept 2021 (It's more than enough but you can take
-more time if needed).
+## Features
 
-**Important things to note -**
+    1. Laravel 8 Framework
+    2. A Complete CRUD Operation(Create, Retrieve, Update, Delete)
+    3. Fully Format Time Stamp of Every Post.
+    4. A New Post always comes on top.
+    5. A Soft UI Design
+    6. Shows Greeting Message according to time.
+    7. Responsive For All Devices!!
+    8. Adding authentication soon
+    9. React js Fronend
+    10. Axios
 
-* Php version upto 7.4
-* Laravel version 8
-* New record/data always comes on top when you create or
-update.
-* If you get extra time, try to make it responsive.
+### Requirements
 
-**Outcome** - You should know **practically**
+    1. PHP version upto 7.4   
+    2. Laravel version  8.0   
 
-* How to send data from frontend to backend? How to make
-an API request to a server?
-* How to handle, manipulate and store data to a database?
-* How to retrieve and send responses to the frontend? And
-how to show them on frontend?
+### Installation
 
-**Where to upload** - You have to clone this repository
-and make a branch of your name and you have to upload your
-task in your branch name
+    1. Clone the project using git clone   
+    2. Copy a fresh .env file from laravel github    
+    3. Update .env file by adding database information like DB_HOST.  
+    4. Go to project root folder.Open git bash or terminal and run  composer install       
+    5. Run php artisan key:generate in the terminal    
+    6. Run php artisan migrate  
+    7. npm install
+    8. npm run dev
+    9. php artisan serve
 
-
-
+## Queries & More Content
+[Medium](https://medium.com/@vikalpkaushik99)
+[LinkedIn](https://www.linkedin.com/in/vikalp-kaushik-99966a1ab)
+[Instagram](https://www.instagram.com/vikalp._.kaushik)
